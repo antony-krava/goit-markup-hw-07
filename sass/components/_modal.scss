@@ -27,7 +27,7 @@
   height: 581px;
   padding: 40px;
 
-  background-color: var(--main-white-color);
+  background-color: $main-white-color;
   border-radius: 4px;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
@@ -36,43 +36,56 @@
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.close-btn {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  cursor: pointer;
+.close {
+  &-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
 
-  background-color: var(--main-white-color);
+    background-color: $main-white-color;
 
-  border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  &-icon {
+    fill: $logo-second-word-color;
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    .close-btn:hover &,
+    .close-btn:focus & {
+      fill: $accent-color;
+    }
+  }
 }
 
-.close-icon {
-  fill: var(--logo-second-word-color);
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
+.modal {
+  &-title {
+    margin-bottom: 12px;
 
-.close-btn:hover .close-icon,
-.close-btn:focus .close-icon {
-  fill: var(--accent-color);
-}
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1.15;
+    text-align: center;
+    letter-spacing: 0.03em;
+  }
 
-.modal-title {
-  margin-bottom: 12px;
+  &-form {
+    display: flex;
+    flex-direction: column;
+  }
 
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 1.15;
-  text-align: center;
-  letter-spacing: 0.03em;
-}
-
-.modal-form {
-  display: flex;
-  flex-direction: column;
+  &-policy-link {
+    padding-left: 4px;
+    font-weight: 400;
+    line-height: 1.714;
+    letter-spacing: 0.03em;
+    text-decoration: underline;
+    color: $accent-color;
+  }
 }
 
 .modal-form-field {
@@ -84,7 +97,7 @@
   line-height: 1.166;
   letter-spacing: 0.01em;
 
-  color: var(--description-text-color);
+  color: $description-text-color;
 }
 .modal-form-field-wrapper {
   display: block;
@@ -104,7 +117,7 @@
 }
 
 .modal-form-input:focus + .modal-input-icon {
-  fill: var(--accent-color);
+  fill: $accent-color;
 }
 
 .modal-input-icon {
@@ -124,7 +137,7 @@
   line-height: 1.166;
   letter-spacing: 0.01em;
 
-  color: var(--description-text-color);
+  color: $description-text-color;
 }
 
 .modal-massage {
@@ -142,16 +155,16 @@
   letter-spacing: 0.01em;
 
   transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &::placeholder {
+    color: rgba(117, 117, 117, 0.5);
+  }
 }
 
-.modal-massage::placeholder {
-  color: rgba(117, 117, 117, 0.5);
-}
-
-.modal-form-input:focus,
+.modal-massage .modal-form-input:focus,
 .modal-massage:focus {
   outline: none;
-  border-color: var(--accent-color);
+  border-color: $accent-color;
 }
 
 .send-form-btn {
@@ -159,7 +172,7 @@
   height: 50px;
   margin: 0 auto;
 
-  background-color: var(--accent-color);
+  background-color: $accent-color;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
   border: none;
@@ -171,7 +184,7 @@
   letter-spacing: 0.06em;
   cursor: pointer;
 
-  color: var(--main-white-color);
+  color: $main-white-color;
 }
 
 .modal-policy-lebel {
@@ -183,36 +196,27 @@
   line-height: 1.714;
   letter-spacing: 0.03em;
   text-align: center;
-  color: var(--description-text-color);
-}
+  color: $description-text-color;
 
-.modal-policy-lebel::before {
-  display: inline-block;
-  content: ' ';
-  width: 16px;
-  height: 15px;
-  margin-left: 13px;
-  margin-right: 7px;
-  border: 2px solid var(--main-text-color);
-  border-radius: 2px;
+  &::before {
+    display: inline-block;
+    content: ' ';
+    width: 16px;
+    height: 15px;
+    margin-left: 13px;
+    margin-right: 7px;
+    border: 2px solid $main-text-color;
+    border-radius: 2px;
 
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    background-image 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      background-image 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
 }
 
 .modal-policy-checkbox:checked + .modal-policy-lebel::before {
-  background-color: var(--accent-color);
+  background-color: $accent-color;
   background-image: url(../images/icon-check.svg);
   border: transparent;
   background-size: contain;
   background-origin: border-box;
-}
-
-.modal-policy-link {
-  padding-left: 4px;
-  font-weight: 400;
-  line-height: 1.714;
-  letter-spacing: 0.03em;
-  text-decoration: underline;
-  color: var(--accent-color);
 }

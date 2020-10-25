@@ -4,9 +4,7 @@
 
 //base
 @import './base/common';
-
-//components
-@import './components/modal';
+@import './base/conteiner';
 
 //layout
 @import './layout/header';
@@ -16,3 +14,7 @@
 @import './layout/team';
 @import './layout/customers';
 @import './layout/footer';
+
+//components
+@import './components/title';
+@import './components/modal';

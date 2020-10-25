@@ -1,28 +1,16 @@
-.workplace-section .conteiner {
-  padding-bottom: 94px;
-}
+.workplace {
+  &-list {
+    display: flex;
+  }
 
-.section-title {
-  margin-bottom: 50px;
+  &-list-item {
+    position: relative;
+    width: calc((100% - 60px) / 3);
+  }
 
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 42px;
-  text-align: center;
-  letter-spacing: 0.03em;
-}
-
-.workplace-list {
-  display: flex;
-}
-
-.workplace-list-item {
-  position: relative;
-  width: calc((100% - 60px) / 3);
-}
-
-.workplace-list-item:not(:last-child) {
-  margin-right: 30px;
+  &-list-item:not(:last-child) {
+    margin-right: 30px;
+  }
 }
 
 .workplace-description {
@@ -35,7 +23,7 @@
   height: 70px;
   padding-top: 27px;
 
-  color: var(--main-white-color);
+  color: $main-white-color;
   font-weight: 700;
   letter-spacing: 0.03em;
   text-align: center;

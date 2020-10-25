@@ -1,19 +1,34 @@
 .header {
-  border-bottom: 1px solid var(--header-border-color);
-}
-.header .conteiner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  border-bottom: 1px solid $header-border-color;
 }
 
 .nav {
   display: flex;
   align-items: center;
+
+  &-list {
+    display: flex;
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  &-list-item {
+    padding-top: 32px;
+    padding-bottom: 32px;
+
+    color: $main-text-color;
+
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover,
+    &:focus {
+      color: $accent-color;
+    }
+  }
 }
 
 .logo {
-  color: var(--logo-second-word-color);
+  color: $logo-second-word-color;
 
   margin-right: 93px;
 
@@ -22,50 +37,47 @@
   font-size: 26px;
   line-height: 1.192;
   letter-spacing: 0.03em;
-}
 
-.logo-first-word {
-  color: var(--accent-color);
-}
-
-.nav-list {
-  display: flex;
-  padding-top: 32px;
-  padding-bottom: 32px;
-}
-
-.nav-list-item {
-  padding-top: 32px;
-  padding-bottom: 32px;
-
-  color: var(--main-text-color);
-
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  &-first-word {
+    color: $accent-color;
+  }
 }
 
 .main-nav-list:not(:last-child) {
   margin-right: 50px;
 }
 
-.address-list {
-  display: flex;
+.address {
+  &-list {
+    display: flex;
+  }
+
+  &-list-item {
+    display: flex;
+    align-items: center;
+    color: $description-text-color;
+
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover,
+    &:focus {
+      color: $accent-color;
+    }
+
+    &:hover .address-icons,
+    &:focus .address-icons {
+      fill: $accent-color;
+    }
+  }
+
+  &-icons {
+    margin-right: 10px;
+    fill: $description-text-color;
+  }
 }
 
 .main-address-list:not(:last-child) {
   margin-right: 50px;
-}
-
-.address-list-item {
-  display: flex;
-  align-items: center;
-  color: var(--description-text-color);
-
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.address-icons {
-  margin-right: 10px;
-  fill: var(--description-text-color);
 }
 
 .icon-envelope {
@@ -82,30 +94,18 @@
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.nav-list-item:hover,
-.nav-list-item:focus,
-.address-list-item:hover,
-.address-list-item:focus {
-  color: var(--accent-color);
-}
-
-.address-list-item:hover .address-icons,
-.address-list-item:focus .address-icons {
-  fill: var(--accent-color);
-}
-
 .active {
   position: relative;
-  color: var(--accent-color);
-}
+  color: $accent-color;
 
-.active::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  border-radius: 2px;
-  background-color: var(--accent-color);
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    background-color: $accent-color;
+  }
 }
