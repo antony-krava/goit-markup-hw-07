@@ -287,8 +287,8 @@ body {
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.main-portfolio-list:hover .wrapper-description,
-.main-portfolio-list:focus .wrapper-description {
+.portfolio-list-item:hover .wrapper-description,
+.portfolio-list-item:focus .wrapper-description {
   transform: translateY(0);
 }
 
